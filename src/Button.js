@@ -9,10 +9,10 @@ class Button extends React.Component{
         }
     }
     buttonClick () {
-        if(counter === 3){
+        if(this.state.counter === 3){
             throw new Error('Error boundary test')
         }
-       this.setState({counter: counter+1});
+       this.setState({counter: this.state.counter+1});
     }
     render() {
         return(
