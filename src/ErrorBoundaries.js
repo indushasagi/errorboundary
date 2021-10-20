@@ -5,7 +5,10 @@ class ErrorBoundary extends React.Component {
       super(props);
       this.state = { hasError: null, errorInfo: null };
     }
-  
+    // static getDerivedStateFromError(error) {
+    //     // Update state so the next render will show the fallback UI.
+    //     return { hasError: 'jasError' };
+    // }
   
     componentDidCatch(hasError, errorInfo) {
       // You can also log the error to an error reporting service
