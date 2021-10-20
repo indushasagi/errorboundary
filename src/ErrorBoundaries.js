@@ -3,21 +3,18 @@ import React from "react";
 class ErrorBoundary extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { hasError: false };
+      this.state = { hasError: null, errorInfo: null };
     }
   
-    static getDerivedStateFromError(error) {
-      // Update state so the next render will show the fallback UI.
-      return { hasError: true };
-    }
   
-    componentDidCatch(hasError) {
+    componentDidCatch(hasError, errorInfo) {
       // You can also log the error to an error reporting service
-     this.setState({hasError: hasError})
+      console.log('in componentdidcatch', hasError);
+     this.setState({hasError: hasError, errorInfo: errorInfo})
     }
   
     render() {
-      if (this.state.hasError) {
+      if (this.state.hasError || this.state.errorInfo) {
         // You can render any custom fallback UI
         return <h1>Something went wrong.</h1>;
       }
